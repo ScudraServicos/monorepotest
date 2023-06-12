@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: br.com.unit
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [annotation-api, app-name, data, data-jpa, gradle, http-client, jackson-databind, jdbc-hikari, junit, kotlin, kotlin-application, kotlin-build, liquibase, logback, micronaut-build, micronaut-test-rest-assured, mockito, netty-server, openapi, postgres, reactor, reactor-http-client, readme, shade, swagger-ui, test-resources, yaml]

@@ -1,0 +1,3 @@
+UPDATE access_control
+SET groups = 'CAMPANHA_MAES_G1'
+WHERE groups = 'PREVIA_CAMPANHA_MAES_G1'

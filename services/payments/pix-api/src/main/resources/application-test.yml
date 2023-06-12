@@ -1,0 +1,18 @@
+config:
+  authentication:
+    apiKey: '123'
+  events:
+    transactionFinalizedTopic:
+      projectId: 'ume-local'
+      topicId: 'topic-local'
+    notifications:
+      projectId: 'ume-local'
+      topicId: 'topic-local'
+      transactionFinalizedEventName: 'payanywhere-transaction-finalized'
+    refund:
+      projectId: 'ume-local'
+      topicId: 'topic-refund-local'
+  featureFlags:
+    emitTransactionFinalizedEvent: false
+  refund:
+    paymentLeftoverCutoffValue: 1.5

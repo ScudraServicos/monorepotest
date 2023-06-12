@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <property name="uuid_type" value="uuid" dbms="postgresql"/>
+    <property name="uuid_function" value="uuid_generate_v4()" dbms="postgresql"/>
+    <changeSet id="02-create-transaction-origin-schema" author="ume">
+        <createTable tableName="TRANSACTION_ORIGIN" remarks="Transaction's origin info">
+            <column name="ID" type="${uuid_type}" defaultValueComputed="${uuid_function}">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="EXTERNAL_ID" type="SERIAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SOURCE_PRODUCT_REFERENCE_NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SOURCE_PRODUCT_REFERENCE_ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="VARCHAR(50)"/>
+            <column name="CREATION_TIMESTAMP" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATE_TIMESTAMP" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex indexName="transaction_origin_product_reference_idx" tableName="TRANSACTION_ORIGIN">
+            <column name="SOURCE_PRODUCT_REFERENCE_NAME"/>
+            <column name="SOURCE_PRODUCT_REFERENCE_ID"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

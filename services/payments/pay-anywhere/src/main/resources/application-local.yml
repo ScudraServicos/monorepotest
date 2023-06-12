@@ -1,0 +1,35 @@
+micronaut:
+  server:
+    port: 8081
+datasources:
+  default:
+    driver-class-name: org.postgresql.Driver
+    db-type: postgres
+    dialect: POSTGRES
+    url: 'jdbc:postgresql://localhost:5433/pay-anywhere'
+    username: 'admin'
+    password: 'admin'
+config:
+  authentication:
+    apiKey: '123'
+  events:
+    paymentsTopic:
+      projectId: 'ume-local'
+      topicId: 'topic-local'
+  apis:
+    coordinatorApi:
+      apiUrl: 'http://localhost:3001/v1'
+      apiKey: '6db1b6e6-b2ca-452d-90ff-81ab344ca433'
+    pixApi:
+      apiUrl: 'http://localhost:8080/api'
+      apiKey: '123'
+  brcodeValidation:
+    legalPersonBlockList:
+      - '36.279.336/0001-82'
+      - '40.885.785/0001-41'
+    minimumValue: 10.0
+  accessControlUserGroups:
+    -
+      name: "INTERNAL_BETA"
+      dependsOnStore: false
+      storeDocumentsSet: []

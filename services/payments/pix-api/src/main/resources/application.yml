@@ -1,0 +1,52 @@
+micronaut:
+  application:
+    name: pix
+  router:
+    versioning:
+      enabled: true
+      default-version: 1
+      header:
+        enabled: true
+        names:
+          - 'X-API-VERSION'
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+  endpoints:
+    health:
+      enabled: true
+      sensitive: true
+      details-visible: ANONYMOUS
+      jdbc:
+        enabled: true
+      postgres:
+        reactive:
+          enabled: true
+      status:
+        http-mapping: Map<String, HttpStatus>
+
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+liquibase:
+  datasources:
+    default:
+      change-log: classpath:db/liquibase-changelog.xml
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        show_sql: false
+
+jackson:
+  serialization:
+    writeDatesAsTimestamps: false
