@@ -1,3 +1,0 @@
-UPDATE access_control
-SET groups = 'INTERNAL_BETA'
-WHERE user_id IN ('11944708', '11510472', '10988108')
