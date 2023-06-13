@@ -1,0 +1,7 @@
+clean:
+	docker stop pg-pay-anywhere
+	docker rm pg-pay-anywhere
+	docker image rm postgres
+
+start:
+	docker-compose -f local/docker-compose.yml up -d

@@ -1,0 +1,19 @@
+config:
+  authentication:
+    apiKey: '123'
+  events:
+    paymentsTopic:
+      projectId: 'ume-test'
+      topicId: 'topic-test'
+  apis:
+    coordinatorApi:
+      apiUrl: ''
+      apiKey: ''
+    pixApi:
+      apiUrl: ''
+      apiKey: '123'
+  brcodeValidation:
+    legalPersonBlockList:
+      - '36.279.336/0001-82'
+      - '40.885.785/0001-41'
+    minimumValue: 10.0

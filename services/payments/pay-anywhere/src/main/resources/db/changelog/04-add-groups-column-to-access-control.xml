@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="04-add-groups-column-to-access-control" author="ume">
+        <addColumn tableName="ACCESS_CONTROL" >
+            <column name="GROUPS" type="varchar(250)" />
+        </addColumn>
+        <addNotNullConstraint tableName="ACCESS_CONTROL" columnName="GROUPS" defaultNullValue="EXTERNAL_BETA"/>
+    </changeSet>
+</databaseChangeLog>
