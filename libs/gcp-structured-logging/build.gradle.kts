@@ -15,3 +15,20 @@ dependencies {
     implementation("com.google.cloud:google-cloud-logging:3.14.7")
     implementation("org.slf4j:jul-to-slf4j:1.7.30")
 }
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+}
+
+tasks {
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = "11"
+        }
+    }
+    compileTestKotlin {
+        kotlinOptions {
+            jvmTarget = "11"
+        }
+    }
+}
