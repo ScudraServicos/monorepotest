@@ -17,22 +17,7 @@ dependencies {
 application {
     mainClass.set("br.com.ume.api.ApplicationKt")
 }
-java {
-    sourceCompatibility = JavaVersion.toVersion("11")
-}
 
-tasks {
-    compileKotlin {
-        kotlinOptions {
-            jvmTarget = "11"
-        }
-    }
-    compileTestKotlin {
-        kotlinOptions {
-            jvmTarget = "11"
-        }
-    }
-}
 graalvmNative.toolchainDetection.set(false)
 micronaut {
     runtime("netty")

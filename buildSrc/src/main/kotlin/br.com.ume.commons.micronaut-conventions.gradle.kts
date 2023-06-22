@@ -59,3 +59,24 @@ dependencies {
     runtimeOnly(libs.logbackClassic)
     runtimeOnly(libs.postgresql)
 }
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+}
+
+tasks {
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = "11"
+        }
+    }
+    compileTestKotlin {
+        kotlinOptions {
+            jvmTarget = "11"
+        }
+    }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.internal.KaptGenerateStubsTask> {
+    kotlinOptions.jvmTarget = "11"
+}
